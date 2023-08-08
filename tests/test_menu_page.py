@@ -1,7 +1,9 @@
 from pages.main_page import MainPage
 from pages.menu_page import MenuPage
+import allure
 
 
+@allure.story('open_main_page')
 def test_open_main_page(driver):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -10,6 +12,7 @@ def test_open_main_page(driver):
     assert main_page.page_title == 'Zdrowy catering dietetyczny, dieta pudełkowa | Kuchnia Vikinga'
 
 
+@allure.story('day_is_correct')
 def test_day_is_correct(driver):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -18,6 +21,7 @@ def test_day_is_correct(driver):
     assert day_on_page == today
 
 
+@allure.story('date_is_correct')
 def test_date_is_correct(driver):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -26,6 +30,7 @@ def test_date_is_correct(driver):
     assert date_on_page == today
 
 
+@allure.story('correct_carousel_sliding')
 def test_correct_carousel_sliding(driver, difference=-1):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -39,6 +44,7 @@ def test_correct_carousel_sliding(driver, difference=-1):
     assert date_on_page != new_date_on_page
 
 
+@allure.story('correct_menu_display_summer_vibes')
 def test_correct_menu_display_summer_vibes(driver, dieta='meals_summer_vibes'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -48,6 +54,7 @@ def test_correct_menu_display_summer_vibes(driver, dieta='meals_summer_vibes'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek']
 
 
+@allure.story('correct_menu_display_ladies_vibes')
 def test_correct_menu_display_ladies_vibes(driver, dieta='meals_ladies_vibes'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -57,6 +64,7 @@ def test_correct_menu_display_ladies_vibes(driver, dieta='meals_ladies_vibes'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_standard')
 def test_correct_menu_display_standard(driver, dieta='meals_standard'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -66,6 +74,7 @@ def test_correct_menu_display_standard(driver, dieta='meals_standard'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_active_pro')
 def test_correct_menu_display_active_pro(driver, dieta='meals_active_pro'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -75,6 +84,7 @@ def test_correct_menu_display_active_pro(driver, dieta='meals_active_pro'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_low_ig')
 def test_correct_menu_display_low_ig(driver, dieta='meals_low_ig'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -84,6 +94,7 @@ def test_correct_menu_display_low_ig(driver, dieta='meals_low_ig'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_ketogeniczna')
 def test_correct_menu_display_ketogeniczna(driver, dieta='meals_ketogeniczna'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -93,6 +104,7 @@ def test_correct_menu_display_ketogeniczna(driver, dieta='meals_ketogeniczna'):
     assert meals == ['Śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_soft')
 def test_correct_menu_display_soft(driver, dieta='meals_soft'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -102,6 +114,7 @@ def test_correct_menu_display_soft(driver, dieta='meals_soft'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_made_by_chef')
 def test_correct_menu_display_made_by_chef(driver, dieta='meals_made_by_chef'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -111,6 +124,7 @@ def test_correct_menu_display_made_by_chef(driver, dieta='meals_made_by_chef'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_ekonomiczna')
 def test_correct_menu_display_ekonomiczna(driver, dieta='meals_ekonomiczna'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -120,6 +134,7 @@ def test_correct_menu_display_ekonomiczna(driver, dieta='meals_ekonomiczna'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad']
 
 
+@allure.story('correct_menu_display_bez_laktozy_i_glutenu')
 def test_correct_menu_display_bez_laktozy_i_glutenu(driver, dieta='meals_bez_laktozy_i_glutenu'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -129,6 +144,7 @@ def test_correct_menu_display_bez_laktozy_i_glutenu(driver, dieta='meals_bez_lak
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_wege_ryby')
 def test_correct_menu_display_wege_ryby(driver, dieta='meals_wege_ryby'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -138,6 +154,7 @@ def test_correct_menu_display_wege_ryby(driver, dieta='meals_wege_ryby'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_ekonomiczna_wege')
 def test_correct_menu_display_ekonomiczna_wege(driver, dieta='meals_ekonomiczna_wege'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -147,6 +164,7 @@ def test_correct_menu_display_ekonomiczna_wege(driver, dieta='meals_ekonomiczna_
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad']
 
 
+@allure.story('correct_menu_display_hashimoto')
 def test_correct_menu_display_hashimoto(driver, dieta='meals_hashimoto'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -156,6 +174,7 @@ def test_correct_menu_display_hashimoto(driver, dieta='meals_hashimoto'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_weganska')
 def test_correct_menu_display_weganska(driver, dieta='meals_weganska'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -165,6 +184,7 @@ def test_correct_menu_display_weganska(driver, dieta='meals_weganska'):
     assert meals == ['Śniadanie', 'Drugie śniadanie', 'Obiad', 'Podwieczorek', 'Kolacja']
 
 
+@allure.story('correct_menu_display_progress')
 def test_correct_menu_display_progress(driver, dieta='meals_progress'):
     menu_page = MenuPage(driver)
     menu_page.open_page()
@@ -174,6 +194,7 @@ def test_correct_menu_display_progress(driver, dieta='meals_progress'):
     assert meals == ['Obiad', 'Kolacja']
 
 
+@allure.story('correct_menu_display_fodmap')
 def test_correct_menu_display_fodmap(driver, dieta='meals_fodmap'):
     menu_page = MenuPage(driver)
     menu_page.open_page()

@@ -1,7 +1,9 @@
 from pages.order_page import OrderPage
 import pytest
+import allure
 
 
+@allure.story('choice_step_diet_without_order')
 def test_choice_step_diet_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -9,6 +11,7 @@ def test_choice_step_diet_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/'
 
 
+@allure.story('choice_step_date_without_order')
 def test_choice_step_date_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -16,6 +19,7 @@ def test_choice_step_date_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/'
 
 
+@allure.story('choice_step_add_without_order')
 def test_choice_step_add_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -23,6 +27,7 @@ def test_choice_step_add_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/'
 
 
+@allure.story('choice_step_cart_without_order')
 def test_choice_step_cart_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -30,6 +35,7 @@ def test_choice_step_cart_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/koszyk'
 
 
+@allure.story('choice_step_cart_and_refund_without_order')
 def test_choice_step_cart_and_refund_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -38,6 +44,7 @@ def test_choice_step_cart_and_refund_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/'
 
 
+@allure.story('choice_step_data_without_order')
 def test_choice_step_data_without_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -45,6 +52,7 @@ def test_choice_step_data_without_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/'
 
 
+@allure.story('correct_choice_city')
 def test_correct_choice_city(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -60,6 +68,7 @@ def test_correct_choice_city(driver):
      'Piła',
      'Oława']
 )
+@allure.story('correct_input_city_and_choice_via_button_enter')
 def test_correct_input_city_and_choice_via_button_enter(driver, city):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -73,6 +82,7 @@ def test_correct_input_city_and_choice_via_button_enter(driver, city):
      'Pił',
      'Oław']
 )
+@allure.story('correct_search_city_by_part_name')
 def test_correct_search_city_by_part_name(driver, city):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -86,6 +96,7 @@ def test_correct_search_city_by_part_name(driver, city):
      'Pił     ',
      '     ołAw     ']
 )
+@allure.story('correct_search_city_by_part_name_with_space_and_different_case')
 def test_correct_search_city_by_part_name_with_space_and_different_case(driver, city):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -99,6 +110,7 @@ def test_correct_search_city_by_part_name_with_space_and_different_case(driver, 
      'Piłtqweqwe     ',
      '    asd ołAw asdasd    ']
 )
+@allure.story('correct_search_city_by_part_name_with_space_and_different_case')
 def test_correct_search_city_by_part_name_with_space_and_different_case(driver, city):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -106,6 +118,7 @@ def test_correct_search_city_by_part_name_with_space_and_different_case(driver, 
     assert notification == 'Brak miasta o takiej nazwie'
 
 
+@allure.story('correct_display_of_the_selection_menu')
 def test_correct_display_of_the_selection_menu(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -116,6 +129,7 @@ def test_correct_display_of_the_selection_menu(driver):
     assert order_page.name_of_diets_selection(1) == 'LADIES VIBES'
 
 
+@allure.story('correct_display_of_the_standard_menu')
 def test_correct_display_of_the_standard_menu(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -129,6 +143,7 @@ def test_correct_display_of_the_standard_menu(driver):
     ]
 
 
+@allure.story('calorie_options_in_diets_when_selecting_menus_standard')
 def test_calorie_options_in_diets_when_selecting_menus_standard(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -139,6 +154,7 @@ def test_calorie_options_in_diets_when_selecting_menus_standard(driver):
     assert order_page.all_calories() == ['1200', '1500', '1800', '2000', '2200', '2500', '3000', 'Dopasuj kaloryczność']
 
 
+@allure.story('calorie_options_in_diets_when_selecting_menus_ladies_vibes')
 def test_calorie_options_in_diets_when_selecting_menus_ladies_vibes(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -162,6 +178,7 @@ def test_calorie_options_in_diets_when_selecting_menus_ladies_vibes(driver):
      (23, 90, 2, 0, 0),
      (30, 3, 9, 3, 2)]
 )
+@allure.story('correct_calorie_count')
 def test_correct_calorie_count(driver, wiek, masa, wzrost, intensity, goal):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -174,6 +191,7 @@ def test_correct_calorie_count(driver, wiek, masa, wzrost, intensity, goal):
     assert expected == actual
 
 
+@allure.story('correct_description_of_the_diet_when_standard_menus')
 def test_correct_description_of_the_diet_when_standard_menus(driver, choice=1):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -193,6 +211,7 @@ def test_correct_description_of_the_diet_when_standard_menus(driver, choice=1):
     assert order_page.date_on_page() == order_page.date_real
 
 
+@allure.story('minimum_number_of_meals_on_a_standard_menu')
 def test_minimum_number_of_meals_on_a_standard_menu(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -209,6 +228,7 @@ def test_minimum_number_of_meals_on_a_standard_menu(driver):
     assert order_page.reporting_the_number_of_meals_selected == 'Ilość wybranych posiłków: 3 ok. 768kcal'
 
 
+@allure.story('moving_to_the_second_step_of_the_order')
 def test_moving_to_the_second_step_of_the_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -221,6 +241,7 @@ def test_moving_to_the_second_step_of_the_order(driver):
     assert order_page.output_order_detail_message == 'Szczegóły zamówienia'
 
 
+@allure.story('weekend_delivery_ban')
 def test_weekend_delivery_ban(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -236,6 +257,7 @@ def test_weekend_delivery_ban(driver):
     assert result_before != result_after
 
 
+@allure.story('correct_display_of_selected_days')
 def test_correct_display_of_selected_days(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -249,6 +271,7 @@ def test_correct_display_of_selected_days(driver):
     assert order_page.ordering_days == order_page.numbers_selected_days
 
 
+@allure.story('moving_to_the_third_step_of_the_order')
 def test_moving_to_the_third_step_of_the_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -263,6 +286,7 @@ def test_moving_to_the_third_step_of_the_order(driver):
     assert order_page.message_step3 == 'Wybierz dodatki'
 
 
+@allure.story('additive_addition')
 def test_additive_addition(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -279,6 +303,7 @@ def test_additive_addition(driver):
     assert order_page.message_amount_of_additives == '1'
 
 
+@allure.story('moving_to_the_fourth_step_of_the_order')
 def test_moving_to_the_fourth_step_of_the_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -300,6 +325,7 @@ def test_moving_to_the_fourth_step_of_the_order(driver):
     assert 'Dieta Standard' in order_page.order_confirmation_diet_message
 
 
+@allure.story('moving_to_the_fifth_step_of_the_order')
 def test_moving_to_the_fifth_step_of_the_order(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -318,6 +344,7 @@ def test_moving_to_the_fifth_step_of_the_order(driver):
     assert order_page.url_page == 'https://zamow.kuchniavikinga.pl/zamowienie/#/platnosc'
 
 
+@allure.story('transfer_to_the_contact_page_for_ordering')
 def test_transfer_to_the_contact_page_for_ordering(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -349,6 +376,7 @@ def test_transfer_to_the_contact_page_for_ordering(driver):
      'K',
      '#']
 )
+@allure.story('enter_first_name')
 def test_enter_first_name(driver, first_name):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -383,6 +411,7 @@ def test_enter_first_name(driver, first_name):
      'K',
      '#']
 )
+@allure.story('enter_second_name')
 def test_enter_second_name(driver, second_name):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -424,6 +453,7 @@ def test_enter_second_name(driver, second_name):
      'asd@.asd.asd',
      'asd@a#@#@#@$%*(&^%*&^%sd.asd']
 )
+@allure.story('enter_email')
 def test_enter_email(driver, email):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -463,6 +493,7 @@ def test_enter_email(driver, email):
      '12345678901',
      '123456789012']
 )
+@allure.story('enter_phone_number')
 def test_enter_phone_number(driver, phone_number):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -486,6 +517,7 @@ def test_enter_phone_number(driver, phone_number):
     assert order_page.message_phone_number_error(phone_number) is True
 
 
+@allure.story('enter_empty_index')
 def test_enter_empty_index(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -508,6 +540,7 @@ def test_enter_empty_index(driver):
     assert order_page.message_index_error() is True
 
 
+@allure.story('enter_index')
 def test_enter_index(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -542,6 +575,7 @@ def test_enter_index(driver):
      'K',
      '#']
 )
+@allure.story('enter_street')
 def test_enter_street(driver, street):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -576,6 +610,7 @@ def test_enter_street(driver, street):
      'K',
      '#']
 )
+@allure.story('enter_house_number')
 def test_enter_house_number(driver, house_number):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -615,6 +650,7 @@ def test_enter_house_number(driver, house_number):
      '12345678901',
      '123456789012']
 )
+@allure.story('enter_floor_number')
 def test_enter_floor_number(driver, floor_number):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -654,6 +690,7 @@ def test_enter_floor_number(driver, floor_number):
      '12345678901',
      '123456789012']
 )
+@allure.story('enter_stairwell_number')
 def test_enter_stairwell_number(driver, stairwell_number):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -677,6 +714,7 @@ def test_enter_stairwell_number(driver, stairwell_number):
     assert order_page.message_stairwell_number_error(stairwell_number) is True
 
 
+@allure.story('enter_empty_delivery_time')
 def test_enter_empty_delivery_time(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -699,6 +737,7 @@ def test_enter_empty_delivery_time(driver):
     assert order_page.message_delivery_time_error() is True
 
 
+@allure.story('enter_delivery_time')
 def test_enter_delivery_time(driver):
     order_page = OrderPage(driver)
     order_page.open_page()
@@ -722,6 +761,7 @@ def test_enter_delivery_time(driver):
     assert order_page.message_delivery_time_error() is False
 
 
+@allure.story('navigation_to_the_payment_page')
 def test_navigation_to_the_payment_page(driver):
     order_page = OrderPage(driver)
     order_page.open_page()

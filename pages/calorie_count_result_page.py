@@ -1,7 +1,9 @@
 from pages.base_page import BasePage
 from locators import calorie_count_result_page_locators as CCRPL
+import allure
 
 
+@allure.feature('Сalorie count result page')
 class CalorieResultPage(BasePage):
 
     @property
@@ -12,6 +14,7 @@ class CalorieResultPage(BasePage):
         text4 = self.find(CCRPL.text4).text
         return [f'{text1}\n{text2}\n{text3}\n{text4}', int(text3[:-4])]
 
+    @allure.step('Calorie counting and result output')
     def calorie_count_check(self, wzrost, masa, wiek, intensity, goal):
         if goal == 1:
             text = 'schudnąć'
