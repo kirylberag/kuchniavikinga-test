@@ -6,7 +6,7 @@ class BasePage:
     beginning_url = None
     page_url = None
     list_elements = None
-    'https://zamow.kuchniavikinga.pl/zamowienie/'
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
 

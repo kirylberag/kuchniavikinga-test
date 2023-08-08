@@ -13,7 +13,7 @@ def test_open_main_page(driver):
 def test_day_is_correct(driver):
     menu_page = MenuPage(driver)
     menu_page.open_page()
-    day_on_page = menu_page.day_on_page()
+    day_on_page = menu_page.day_on_page(-2)
     today = menu_page.day_real
     assert day_on_page == today
 
@@ -21,7 +21,7 @@ def test_day_is_correct(driver):
 def test_date_is_correct(driver):
     menu_page = MenuPage(driver)
     menu_page.open_page()
-    date_on_page = menu_page.date_on_page()
+    date_on_page = menu_page.date_on_page(-2)
     today = menu_page.date_real
     assert date_on_page == today
 

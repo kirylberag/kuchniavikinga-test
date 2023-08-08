@@ -3,6 +3,7 @@ from locators import calorie_count_result_page_locators as CCRPL
 
 
 class CalorieResultPage(BasePage):
+
     @property
     def reporting_calories_needed(self):
         text1 = self.find(CCRPL.text1).text

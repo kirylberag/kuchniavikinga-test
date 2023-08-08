@@ -5,6 +5,7 @@ import datetime
 
 class MenuPage(BasePage):
     page_url = '/menu'
+    beginning_url = ''
 
     @property
     def page_title(self):
@@ -41,7 +42,11 @@ class MenuPage(BasePage):
     @property
     def date_real(self):
         date_now = datetime.datetime.now()
-        return date_now.strftime('%d/%m/%Y')
+        result = date_now.strftime('%d.%m.%Y')
+        if result[0] == '0':
+            return result[1:]
+        else:
+            return result
 
     def three_clicks_glide_arrow_left(self):
         for i in range(3):

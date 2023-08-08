@@ -3,14 +3,10 @@ from locators import main_page_locators as MPL
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.alert import Alert
 
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-from time import sleep
-
 
 class MainPage(BasePage):
     page_url = '/'
+    beginning_url = ''
 
     @property
     def page_title(self):
@@ -81,10 +77,10 @@ class MainPage(BasePage):
 
     def click_tab_menu(self):
         self.find(MPL.tab_menu).click()
-###########################################################################################################
+
     def click_tab_strefy_dostaw(self):
         self.find(MPL.tab_strefy_dostaw).click()
-########################
+
     def open_tab_swiat_vikinga(self):
         self.find(MPL.tab_swiat_vikinga).click()
 
@@ -102,7 +98,7 @@ class MainPage(BasePage):
 
     def click_punkty_stacjonarne_vikinga(self):
         self.find(MPL.button_punkty_stacjonarne_vikinga).click()
-#########################################################
+
     def click_tab_kontakt(self):
         self.find(MPL.tab_kontakt).click()
 
@@ -191,7 +187,6 @@ class MainPage(BasePage):
         self.find(MPL.field_gdzie_dowozi).send_keys(part_name_city)
         try:
             self.find(MPL.button_city).click()
-            print('asd')
         except:
             return True
 
@@ -199,8 +194,3 @@ class MainPage(BasePage):
     def message_of_impossibility(self):
         text_message = self.find(MPL.field_message_of_possibility).text
         return text_message
-
-
-    # 992 x 732 пикселя - отсутствует кнопка МЕНЮ на главной странице
-    # калькулятор калорий считает и отрицательные значения и с буквами вместо цифр
-    # на главной странице в некоторые города пишет нельзя доставить, а при заказе - пишет доставка возможна

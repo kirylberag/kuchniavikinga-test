@@ -370,3 +370,19 @@ def test_open_page_wszystkie_diety_button_zobacz_nasze_diety(driver):
     main_page.click_button_zobacz_nasze_diety()
     other_page = OtherPage(driver)
     assert other_page.page_title == 'Diety - Kuchnia Vikinga'
+
+
+def test_open_page_menu(driver):
+    main_page = MainPage(driver)
+    main_page.open_page()
+    main_page.click_tab_menu()
+    other_page = OtherPage(driver)
+    assert other_page.page_title == 'Menu - Kuchnia Vikinga'
+
+
+def test_open_page_delivery_option(driver):
+    main_page = MainPage(driver)
+    main_page.open_page()
+    main_page.click_tab_strefy_dostaw()
+    other_page = OtherPage(driver)
+    assert other_page.page_title == 'Strefy dostaw - Kuchnia Vikinga'
