@@ -42,11 +42,8 @@ class MenuPage(BasePage):
     @property
     def date_real(self):
         date_now = datetime.datetime.now()
-        result = date_now.strftime('%d.%m.%Y')
-        if result[0] == '0':
-            return result[1:]
-        else:
-            return result
+        result = date_now.strftime('%d/%m/%Y')
+        return result
 
     def three_clicks_glide_arrow_left(self):
         for i in range(3):

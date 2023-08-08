@@ -288,7 +288,7 @@ def test_moving_to_the_fourth_step_of_the_order(driver):
     order_page.choice_calories_or_click_calories_count(0)
     order_page.click_next_step()
     order_page.click_first_available_day()
-    selected_days = order_page.numbers_selected_days()
+    selected_days = order_page.numbers_selected_days
     order_page.click_button_next_step3()
     order_page.click_additive_selection_button()
     order_page.click_additive_button()

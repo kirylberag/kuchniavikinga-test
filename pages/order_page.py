@@ -58,9 +58,10 @@ class OrderPage(BasePage):
         self.find(OPL.enter_city).send_keys(city)
         WebDriverWait(self.driver, 3).until(
             EC.invisibility_of_element(OPL.indicator_text))
-        if self.find(OPL.text_empty_city).get_attribute('innerText') == 'Brak miasta o takiej nazwie':
+        try:
+            self.find(OPL.text_empty_city).get_attribute('innerText')# == 'Brak miasta o takiej nazwie'
             return self.find(OPL.text_empty_city).get_attribute('innerText')
-        else:
+        except:
             name_city = self.find(OPL.city_context).get_attribute('innerText')
             self.find(OPL.city_context).click()
             return name_city.split("\n")[0]
